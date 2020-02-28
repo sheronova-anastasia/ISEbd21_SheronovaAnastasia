@@ -12,7 +12,7 @@ namespace TP1
 {
     public partial class FormPlane : Form
     {
-        private Bomber plane;
+        private ITransport plane;
         public FormPlane()
         {
             InitializeComponent();
@@ -28,16 +28,29 @@ namespace TP1
             pictureBoxBombers.Image = bmp;
         }
         /// <summary>
-        /// Обработка нажатия кнопки "Создать"
+        /// Обработка нажатия кнопки "Создать самолёт"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonCreate_Click(object sender, EventArgs e)
+        private void buttonCreatePlane_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            plane = new Plane(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.White);
+            plane.SetPosition(rnd.Next(10, 100), rnd.Next(50, 100), pictureBoxBombers.Width,
+           pictureBoxBombers.Height);
+            Draw();
+        }
+        /// <summary>
+        /// Обработка нажатия кнопки "Создать бомбардировщик"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonCreateBomber_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
             plane = new Bomber(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Green,
            Color.Brown, true, true, true);
-            plane.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBombers.Width,
+            plane.SetPosition(rnd.Next(10, 100), rnd.Next(50, 100), pictureBoxBombers.Width,
            pictureBoxBombers.Height);
             Draw();
         }
