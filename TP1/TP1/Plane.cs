@@ -36,7 +36,7 @@ namespace TP1
             {
                 // вправо
                 case Direction.Right:
-                    if (_startPosX + step < _pictureWidth - planeWidth*2)
+                    if (_startPosX + step < _pictureWidth - planeWidth)
                     {
                         _startPosX += step;
                     }
@@ -57,7 +57,7 @@ namespace TP1
                     break;
                 //вниз
                 case Direction.Down:
-                    if (_startPosY + step < _pictureHeight - planeHeight*2)
+                    if (_startPosY + step < _pictureHeight - planeHeight)
                     {
                         _startPosY += step;
                     }
