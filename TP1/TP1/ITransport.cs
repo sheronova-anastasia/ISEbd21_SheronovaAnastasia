@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TP1
 {
-    interface ITransport
+    public interface ITransport
     {
         /// <summary>
         /// Установка позиции самолёта
