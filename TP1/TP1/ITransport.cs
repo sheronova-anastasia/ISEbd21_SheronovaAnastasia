@@ -27,5 +27,11 @@ namespace TP1
         /// </summary>
         /// <param name="g"></param>
         void DrawPlane(Graphics g);
+
+        /// <summary>
+        /// Смена основного цвета самолёта
+        /// </summary>
+        /// <param name="color"></param>
+        void SetMainColor(Color color);
     }
 }

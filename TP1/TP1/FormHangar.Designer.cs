@@ -29,18 +29,16 @@
         private void InitializeComponent()
         {
             this.pictureBoxHangar = new System.Windows.Forms.PictureBox();
-            this.buttonSetPlane = new System.Windows.Forms.Button();
-            this.buttonSetBomber = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxTakePlane = new System.Windows.Forms.GroupBox();
             this.pictureBoxTakePlane = new System.Windows.Forms.PictureBox();
             this.buttonGet = new System.Windows.Forms.Button();
             this.maskedTextBoxPlace = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
-            this.labelGet = new System.Windows.Forms.Label();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
             this.labelLevels = new System.Windows.Forms.Label();
+            this.buttonAddPlane = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHangar)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxTakePlane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,39 +50,18 @@
             this.pictureBoxHangar.TabIndex = 0;
             this.pictureBoxHangar.TabStop = false;
             // 
-            // buttonSetPlane
+            // groupBoxTakePlane
             // 
-            this.buttonSetPlane.Location = new System.Drawing.Point(830, 127);
-            this.buttonSetPlane.Name = "buttonSetPlane";
-            this.buttonSetPlane.Size = new System.Drawing.Size(110, 51);
-            this.buttonSetPlane.TabIndex = 1;
-            this.buttonSetPlane.Text = "Разместить самолёт в ангаре";
-            this.buttonSetPlane.UseVisualStyleBackColor = true;
-            this.buttonSetPlane.Click += new System.EventHandler(this.buttonSetPlane_Click);
-            // 
-            // buttonSetBomber
-            // 
-            this.buttonSetBomber.Location = new System.Drawing.Point(830, 184);
-            this.buttonSetBomber.Name = "buttonSetBomber";
-            this.buttonSetBomber.Size = new System.Drawing.Size(110, 51);
-            this.buttonSetBomber.TabIndex = 2;
-            this.buttonSetBomber.Text = "Разместить бомбардировщик в ангаре";
-            this.buttonSetBomber.UseVisualStyleBackColor = true;
-            this.buttonSetBomber.Click += new System.EventHandler(this.buttonSetBomber_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.pictureBoxTakePlane);
-            this.groupBox1.Controls.Add(this.buttonGet);
-            this.groupBox1.Controls.Add(this.maskedTextBoxPlace);
-            this.groupBox1.Controls.Add(this.labelPlace);
-            this.groupBox1.Controls.Add(this.labelGet);
-            this.groupBox1.Location = new System.Drawing.Point(802, 241);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(170, 227);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox";
+            this.groupBoxTakePlane.Controls.Add(this.pictureBoxTakePlane);
+            this.groupBoxTakePlane.Controls.Add(this.buttonGet);
+            this.groupBoxTakePlane.Controls.Add(this.maskedTextBoxPlace);
+            this.groupBoxTakePlane.Controls.Add(this.labelPlace);
+            this.groupBoxTakePlane.Location = new System.Drawing.Point(802, 241);
+            this.groupBoxTakePlane.Name = "groupBoxTakePlane";
+            this.groupBoxTakePlane.Size = new System.Drawing.Size(170, 227);
+            this.groupBoxTakePlane.TabIndex = 3;
+            this.groupBoxTakePlane.TabStop = false;
+            this.groupBoxTakePlane.Text = "Забрать самолёт";
             // 
             // pictureBoxTakePlane
             // 
@@ -120,15 +97,6 @@
             this.labelPlace.TabIndex = 1;
             this.labelPlace.Text = "Место:";
             // 
-            // labelGet
-            // 
-            this.labelGet.AutoSize = true;
-            this.labelGet.Location = new System.Drawing.Point(43, 16);
-            this.labelGet.Name = "labelGet";
-            this.labelGet.Size = new System.Drawing.Size(95, 13);
-            this.labelGet.TabIndex = 0;
-            this.labelGet.Text = "Забрать самолёт";
-            // 
             // listBoxLevels
             // 
             this.listBoxLevels.FormattingEnabled = true;
@@ -147,22 +115,31 @@
             this.labelLevels.TabIndex = 5;
             this.labelLevels.Text = "Уровни:";
             // 
+            // buttonAddPlane
+            // 
+            this.buttonAddPlane.Location = new System.Drawing.Point(830, 165);
+            this.buttonAddPlane.Name = "buttonAddPlane";
+            this.buttonAddPlane.Size = new System.Drawing.Size(120, 55);
+            this.buttonAddPlane.TabIndex = 6;
+            this.buttonAddPlane.Text = "Добавить самолёт";
+            this.buttonAddPlane.UseVisualStyleBackColor = true;
+            this.buttonAddPlane.Click += new System.EventHandler(this.buttonAddPlane_Click);
+            // 
             // FormHangar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 465);
+            this.Controls.Add(this.buttonAddPlane);
             this.Controls.Add(this.labelLevels);
             this.Controls.Add(this.listBoxLevels);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonSetBomber);
-            this.Controls.Add(this.buttonSetPlane);
+            this.Controls.Add(this.groupBoxTakePlane);
             this.Controls.Add(this.pictureBoxHangar);
             this.Name = "FormHangar";
             this.Text = "Ангар";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHangar)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxTakePlane.ResumeLayout(false);
+            this.groupBoxTakePlane.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -172,15 +149,13 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxHangar;
-        private System.Windows.Forms.Button buttonSetPlane;
-        private System.Windows.Forms.Button buttonSetBomber;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxTakePlane;
         private System.Windows.Forms.PictureBox pictureBoxTakePlane;
         private System.Windows.Forms.Button buttonGet;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPlace;
         private System.Windows.Forms.Label labelPlace;
-        private System.Windows.Forms.Label labelGet;
         private System.Windows.Forms.ListBox listBoxLevels;
         private System.Windows.Forms.Label labelLevels;
+        private System.Windows.Forms.Button buttonAddPlane;
     }
 }

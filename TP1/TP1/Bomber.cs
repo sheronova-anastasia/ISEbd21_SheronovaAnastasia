@@ -103,5 +103,13 @@ namespace TP1
                 g.FillPolygon(rocket, boardR2);
             }
         }
+
+        /// Смена дополнительного цвета
+        /// </summary>
+        /// <param name="color"></param>
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+        }
     }
 }
