@@ -36,7 +36,6 @@
             this.buttonGet = new System.Windows.Forms.Button();
             this.maskedTextBoxPlace = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
-            this.labelGet = new System.Windows.Forms.Label();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
             this.labelLevels = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHangar)).BeginInit();
@@ -78,19 +77,18 @@
             this.groupBox1.Controls.Add(this.buttonGet);
             this.groupBox1.Controls.Add(this.maskedTextBoxPlace);
             this.groupBox1.Controls.Add(this.labelPlace);
-            this.groupBox1.Controls.Add(this.labelGet);
             this.groupBox1.Location = new System.Drawing.Point(802, 241);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(170, 227);
+            this.groupBox1.Size = new System.Drawing.Size(170, 208);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox";
+            this.groupBox1.Text = "Забрать самолёт";
             // 
             // pictureBoxTakePlane
             // 
             this.pictureBoxTakePlane.Location = new System.Drawing.Point(6, 93);
             this.pictureBoxTakePlane.Name = "pictureBoxTakePlane";
-            this.pictureBoxTakePlane.Size = new System.Drawing.Size(158, 128);
+            this.pictureBoxTakePlane.Size = new System.Drawing.Size(158, 109);
             this.pictureBoxTakePlane.TabIndex = 4;
             this.pictureBoxTakePlane.TabStop = false;
             // 
@@ -119,15 +117,6 @@
             this.labelPlace.Size = new System.Drawing.Size(42, 13);
             this.labelPlace.TabIndex = 1;
             this.labelPlace.Text = "Место:";
-            // 
-            // labelGet
-            // 
-            this.labelGet.AutoSize = true;
-            this.labelGet.Location = new System.Drawing.Point(43, 16);
-            this.labelGet.Name = "labelGet";
-            this.labelGet.Size = new System.Drawing.Size(95, 13);
-            this.labelGet.TabIndex = 0;
-            this.labelGet.Text = "Забрать самолёт";
             // 
             // listBoxLevels
             // 
@@ -179,7 +168,6 @@
         private System.Windows.Forms.Button buttonGet;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPlace;
         private System.Windows.Forms.Label labelPlace;
-        private System.Windows.Forms.Label labelGet;
         private System.Windows.Forms.ListBox listBoxLevels;
         private System.Windows.Forms.Label labelLevels;
     }
