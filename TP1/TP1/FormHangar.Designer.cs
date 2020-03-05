@@ -36,6 +36,7 @@
             this.buttonGet = new System.Windows.Forms.Button();
             this.maskedTextBoxPlace = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
+          
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHangar)).BeginInit();
             this.groupBoxTakePlane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).BeginInit();
@@ -45,13 +46,13 @@
             // 
             this.pictureBoxHangar.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxHangar.Name = "pictureBoxHangar";
-            this.pictureBoxHangar.Size = new System.Drawing.Size(781, 449);
+            this.pictureBoxHangar.Size = new System.Drawing.Size(781, 464);
             this.pictureBoxHangar.TabIndex = 0;
             this.pictureBoxHangar.TabStop = false;
             // 
             // buttonSetPlane
             // 
-            this.buttonSetPlane.Location = new System.Drawing.Point(832, 28);
+            this.buttonSetPlane.Location = new System.Drawing.Point(830, 127);
             this.buttonSetPlane.Name = "buttonSetPlane";
             this.buttonSetPlane.Size = new System.Drawing.Size(110, 51);
             this.buttonSetPlane.TabIndex = 1;
@@ -61,7 +62,7 @@
             // 
             // buttonSetBomber
             // 
-            this.buttonSetBomber.Location = new System.Drawing.Point(830, 99);
+            this.buttonSetBomber.Location = new System.Drawing.Point(830, 184);
             this.buttonSetBomber.Name = "buttonSetBomber";
             this.buttonSetBomber.Size = new System.Drawing.Size(110, 51);
             this.buttonSetBomber.TabIndex = 2;
@@ -75,9 +76,6 @@
             this.groupBoxTakePlane.Controls.Add(this.buttonGet);
             this.groupBoxTakePlane.Controls.Add(this.maskedTextBoxPlace);
             this.groupBoxTakePlane.Controls.Add(this.labelPlace);
-            this.groupBoxTakePlane.Location = new System.Drawing.Point(802, 197);
-            this.groupBoxTakePlane.Name = "groupBoxTakePlane";
-            this.groupBoxTakePlane.Size = new System.Drawing.Size(170, 227);
             this.groupBoxTakePlane.TabIndex = 3;
             this.groupBoxTakePlane.TabStop = false;
             this.groupBoxTakePlane.Text = "Забрать самолёт";
@@ -86,7 +84,7 @@
             // 
             this.pictureBoxTakePlane.Location = new System.Drawing.Point(6, 93);
             this.pictureBoxTakePlane.Name = "pictureBoxTakePlane";
-            this.pictureBoxTakePlane.Size = new System.Drawing.Size(158, 128);
+            this.pictureBoxTakePlane.Size = new System.Drawing.Size(158, 109);
             this.pictureBoxTakePlane.TabIndex = 4;
             this.pictureBoxTakePlane.TabStop = false;
             // 
@@ -115,12 +113,11 @@
             this.labelPlace.Size = new System.Drawing.Size(42, 13);
             this.labelPlace.TabIndex = 1;
             this.labelPlace.Text = "Место:";
-            // 
+            //
             // FormHangar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 451);
             this.Controls.Add(this.groupBoxTakePlane);
             this.Controls.Add(this.buttonSetBomber);
             this.Controls.Add(this.buttonSetPlane);
@@ -132,6 +129,7 @@
             this.groupBoxTakePlane.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -145,5 +143,6 @@
         private System.Windows.Forms.Button buttonGet;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPlace;
         private System.Windows.Forms.Label labelPlace;
+
     }
 }

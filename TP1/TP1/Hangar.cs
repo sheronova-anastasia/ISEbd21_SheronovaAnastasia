@@ -11,12 +11,18 @@ namespace TP1
     /// Параметризованны класс для хранения набора объектов от интерфейса ITransport
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    class Hangar<T> where T : class, ITransport
+    public class Hangar<T> where T : class, ITransport
     {
         /// <summary>
         /// Массив объектов, которые храним
         /// </summary>
-        private T[] _places;
+        private Dictionary<int, T> _places;
+
+        /// <summary>
+        /// Максимальное количество мест в ангаре
+        /// </summary>
+        private int _maxCount;
+        
         /// <summary>
         /// Ширина окна отрисовки
         /// </summary>
@@ -41,14 +47,12 @@ namespace TP1
         /// <param name="pictureHeight">Рамзер ангара - высота</param>
         public Hangar(int sizes, int pictureWidth, int pictureHeight)
         {
-            _places = new T[sizes];
+            _maxCount = sizes;
+            _places = new Dictionary<int, T>();
             PictureWidth = pictureWidth;
             PictureHeight = pictureHeight;
-            for (int i = 0; i < _places.Length; i++)
-            {
-                _places[i] = null;
             }
-        }
+
         /// <summary>
         /// Перегрузка оператора сложения
         /// Логика действия: в ангар добавляется самолёт
@@ -56,16 +60,20 @@ namespace TP1
         /// <param name="h">Ангар</param>
         /// <param name="plane">Добавляемый самолёт</param>
         /// <returns></returns>
-        public static int operator +(Hangar<T> p, T plane)
+        public static int operator +(Hangar<T> h, T plane)
         {
-            for (int i = 0; i < p._places.Length; i++)
+            if (h._places.Count == h._maxCount)
             {
-                if (p.CheckFreePlace(i))
+                return -1;
+            }
+            for (int i = 0; i < h._maxCount; i++)
+            {
+                if (h.CheckFreePlace(i))
                 {
-                    p._places[i] = plane;
-                    p._places[i].SetPosition(3 + i / 3 * _placeSizeWidth + 3,
-                     i % 3 * _placeSizeHeight + 15, p.PictureWidth,
-                    p.PictureHeight);
+                    h._places[i] = plane;
+                    h._places[i].SetPosition(3 + i / 3 * _placeSizeWidth + 3,
+                     i % 3 * _placeSizeHeight + 15, h.PictureWidth,
+                    h.PictureHeight);
                     return i;
                 }
             }
@@ -73,21 +81,17 @@ namespace TP1
         }
         /// <summary>
         /// Перегрузка оператора вычитания
-        /// Логика действия: с парковки забираем автомобиль
+        /// Логика действия: из ангара забираем самолёт
         /// </summary>
-        /// <param name="p">Парковка</param>
+        /// <param name="h">Ангар</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь объект</param>
         /// <returns></returns>
-        public static T operator -(Hangar<T> p, int index)
+        public static T operator -(Hangar<T> h, int index)
         {
-            if (index < 0 || index > p._places.Length)
+            if (!h.CheckFreePlace(index))
             {
-                return null;
-            }
-            if (!p.CheckFreePlace(index))
-            {
-                T plane = p._places[index];
-                p._places[index] = null;
+                T plane = h._places[index];
+                h._places.Remove(index);
                 return plane;
             }
             return null;
@@ -99,7 +103,7 @@ namespace TP1
         /// <returns></returns>
         private bool CheckFreePlace(int index)
         {
-            return _places[index] == null;
+            return !_places.ContainsKey(index);
         }
         /// <summary>
         /// Метод отрисовки ангара
@@ -108,12 +112,10 @@ namespace TP1
         public void Draw(Graphics g)
         {
             DrawMarking(g);
-            for (int i = 0; i < _places.Length; i++)
+            var keys = _places.Keys.ToList();
+            for (int i = 0; i < keys.Count; i++)
             {
-                if (!CheckFreePlace(i))
-                {//если место не пустое
-                    _places[i].DrawPlane(g);
-                }
+                _places[keys[i]].DrawPlane(g);
             }
         }
         /// <summary>
@@ -124,8 +126,8 @@ namespace TP1
         {
             Pen pen = new Pen(Color.Black, 3);
             //границы ангара
-            g.DrawRectangle(pen, 0, 0, (_places.Length / 3) * _placeSizeWidth, 480);
-            for (int i = 0; i < _places.Length / 3; i++)
+            g.DrawRectangle(pen, 0, 0, (_maxCount / 3) * _placeSizeWidth, 480);
+            for (int i = 0; i < _maxCount / 3; i++)
             {//отрисовываем, по 3 места на линии
                 for (int j = 0; j < 3; ++j)
                 {//линия рамзетки места
