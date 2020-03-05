@@ -36,7 +36,6 @@
             this.buttonGet = new System.Windows.Forms.Button();
             this.maskedTextBoxPlace = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
-            this.labelGet = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHangar)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).BeginInit();
@@ -76,13 +75,12 @@
             this.groupBox1.Controls.Add(this.buttonGet);
             this.groupBox1.Controls.Add(this.maskedTextBoxPlace);
             this.groupBox1.Controls.Add(this.labelPlace);
-            this.groupBox1.Controls.Add(this.labelGet);
             this.groupBox1.Location = new System.Drawing.Point(802, 197);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(170, 227);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox";
+            this.groupBox1.Text = "Забрать самолёт";
             // 
             // pictureBoxTakePlane
             // 
@@ -118,15 +116,6 @@
             this.labelPlace.TabIndex = 1;
             this.labelPlace.Text = "Место:";
             // 
-            // labelGet
-            // 
-            this.labelGet.AutoSize = true;
-            this.labelGet.Location = new System.Drawing.Point(43, 16);
-            this.labelGet.Name = "labelGet";
-            this.labelGet.Size = new System.Drawing.Size(95, 13);
-            this.labelGet.TabIndex = 0;
-            this.labelGet.Text = "Забрать самолёт";
-            // 
             // FormHangar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,11 +140,10 @@
         private System.Windows.Forms.PictureBox pictureBoxHangar;
         private System.Windows.Forms.Button buttonSetPlane;
         private System.Windows.Forms.Button buttonSetBomber;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxTakePlane;
         private System.Windows.Forms.PictureBox pictureBoxTakePlane;
         private System.Windows.Forms.Button buttonGet;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPlace;
         private System.Windows.Forms.Label labelPlace;
-        private System.Windows.Forms.Label labelGet;
     }
 }
