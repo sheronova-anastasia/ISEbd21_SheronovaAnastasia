@@ -29,6 +29,22 @@ namespace TP1
             Weight = weight;
             MainColor = mainColor;
         }
+
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="info">Информация по объекту</param>
+        public Plane(string info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
+        }
+
         public override void MoveTransport(Direction direction)
         {
             float step = MaxSpeed * 100 / Weight;
@@ -98,6 +114,11 @@ namespace TP1
             g.DrawEllipse(pen, _startPosX + 133, _startPosY + 25, 5, 17);
             g.FillEllipse(brPink, _startPosX + 133, _startPosY + 45, 7, 7);
             g.DrawEllipse(pen, _startPosX + 133, _startPosY + 45, 7, 7);
+        }
+
+        public override string ToString()
+        {
+            return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
         }
     }
 }

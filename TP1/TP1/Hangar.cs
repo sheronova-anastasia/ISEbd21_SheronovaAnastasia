@@ -22,7 +22,7 @@ namespace TP1
         /// Максимальное количество мест в ангаре
         /// </summary>
         private int _maxCount;
-        
+
         /// <summary>
         /// Ширина окна отрисовки
         /// </summary>
@@ -51,7 +51,7 @@ namespace TP1
             _places = new Dictionary<int, T>();
             PictureWidth = pictureWidth;
             PictureHeight = pictureHeight;
-            }
+        }
 
         /// <summary>
         /// Перегрузка оператора сложения
@@ -70,7 +70,7 @@ namespace TP1
             {
                 if (h.CheckFreePlace(i))
                 {
-                    h._places[i] = plane;
+                    h._places.Add(i, plane);
                     h._places[i].SetPosition(3 + i / 3 * _placeSizeWidth + 3,
                      i % 3 * _placeSizeHeight + 15, h.PictureWidth,
                     h.PictureHeight);
@@ -96,6 +96,33 @@ namespace TP1
             }
             return null;
         }
+
+        /// <summary>
+        /// Индексатор
+        /// </summary>
+        /// <param name="ind"></param>
+        /// <returns></returns>
+        public T this[int ind]
+        {
+            get
+            {
+                if (_places.ContainsKey(ind))
+                {
+                    return _places[ind];
+                }
+                return null;
+            }
+            set
+            {
+                if (CheckFreePlace(ind))
+                {
+                    _places.Add(ind, value);
+                    _places[ind].SetPosition(3 + ind / 3 * _placeSizeWidth + 3, ind % 3 
+                    * _placeSizeHeight + 15, PictureWidth, PictureHeight);
+                }
+            }
+        }
+
         /// <summary>
         /// Метод проверки заполнености места в ангаре(ячейки массива)
         /// </summary>
@@ -104,6 +131,11 @@ namespace TP1
         private bool CheckFreePlace(int index)
         {
             return !_places.ContainsKey(index);
+        }
+
+        public T GetPlaneByKey(int key)
+        {
+            return _places.ContainsKey(key) ? _places[key] : null;
         }
         /// <summary>
         /// Метод отрисовки ангара
