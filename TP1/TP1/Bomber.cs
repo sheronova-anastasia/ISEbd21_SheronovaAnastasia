@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TP1
 {
-    public class Bomber : Plane
+    public class Bomber : Plane, IComparable<Bomber>, IEquatable<Bomber>
     {
         /// <summary>
         /// Дополнительный цвет
@@ -132,6 +132,99 @@ namespace TP1
         {
             return base.ToString() + ";" + DopColor.Name + ";" + Star + ";" +
            Bomb + ";" + Rocket;
+        }
+
+        /// <summary>
+        /// Метод интерфейса IComparable для класса Bomber
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public int CompareTo(Bomber other)
+        {
+            var res = (this is Plane).CompareTo(other is Plane);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                DopColor.Name.CompareTo(other.DopColor.Name);
+            }
+            if (Star != other.Star)
+            {
+                return Star.CompareTo(other.Star);
+            }
+            if (Bomb != other.Bomb)
+            {
+                return Bomb.CompareTo(other.Bomb);
+            }
+            if (Rocket != other.Rocket)
+            {
+                return Rocket.CompareTo(other.Rocket);
+            }
+            return 0;
+        }
+        /// <summary>
+        /// Метод интерфейса IEquatable для класса Bomber
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(Bomber other)
+        {
+            var res = (this as Plane).Equals(other as Plane);
+            if (!res)
+            {
+                return res;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (Star != other.Star)
+            {
+                return false;
+            }
+            if (Bomb != other.Bomb)
+            {
+                return false;
+            }
+            if (Rocket != other.Rocket)
+            {
+                return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Bomber planeObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(planeObj);
+            }
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

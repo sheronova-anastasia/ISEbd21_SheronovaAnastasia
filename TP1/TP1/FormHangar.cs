@@ -145,6 +145,11 @@ namespace TP1
                     MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     error.Error(ex.Message);
                 }
+                catch (HangarAlreadyHaveException ex)
+                {
+                    MessageBox.Show(ex.Message, "Дублирование", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -193,6 +198,18 @@ namespace TP1
                 }
                 Draw();
             }
+        }
+
+        /// <summary>
+        /// Обработка нажатия кнопки "Сортировать"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            hangar.Sort();
+            Draw();
+            logger.Info("Сортировка уровней");
         }
     }
 }

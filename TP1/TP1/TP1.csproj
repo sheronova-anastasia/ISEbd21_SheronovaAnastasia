@@ -75,6 +75,7 @@
       <DependentUpon>FormPlaneConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="Hangar.cs" />
+    <Compile Include="HangarAlreadyHaveException.cs" />
     <Compile Include="HangarNotFoundException.cs" />
     <Compile Include="HangarOccupiedPlaceException.cs" />
     <Compile Include="HangarOverflowException.cs" />
