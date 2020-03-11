@@ -29,7 +29,7 @@ namespace TP1
         public FormHangar()
         {
             InitializeComponent();
-            hangar = new MultiLevelHangar(12, pictureBoxHangar.Width,
+            hangar = new MultiLevelHangar(countLevel, pictureBoxHangar.Width,
 pictureBoxHangar.Height);
             //заполнение listBox
             for (int i = 0; i < countLevel; i++)
@@ -127,6 +127,41 @@ pictureBoxHangar.Height);
                 {
                     MessageBox.Show("Самолёт не удалось поставить");
                 }
+            }
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialogHangar.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (hangar.SaveData(saveFileDialogHangar.FileName))
+                {
+                    MessageBox.Show("Сохранение прошло успешно", "Результат",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не сохранилось", "Результат",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogHangar.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (hangar.LoadData(openFileDialogHangar.FileName))
+                {
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                }
+                Draw();
             }
         }
     }
