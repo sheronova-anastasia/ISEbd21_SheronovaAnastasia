@@ -64,7 +64,7 @@ namespace TP1
         {
             if (h._places.Count == h._maxCount)
             {
-                return -1;
+                throw new HangarOverflowException();
             }
             for (int i = 0; i < h._maxCount; i++)
             {
@@ -94,7 +94,7 @@ namespace TP1
                 h._places.Remove(index);
                 return plane;
             }
-            return null;
+            throw new HangarNotFoundException(index);
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace TP1
                 {
                     return _places[ind];
                 }
-                return null;
+                throw new HangarNotFoundException(ind);
             }
             set
             {
@@ -119,6 +119,10 @@ namespace TP1
                     _places.Add(ind, value);
                     _places[ind].SetPosition(3 + ind / 3 * _placeSizeWidth + 3, ind % 3 
                     * _placeSizeHeight + 15, PictureWidth, PictureHeight);
+                }
+                else
+                {
+                    throw new HangarOccupiedPlaceException(ind);
                 }
             }
         }
