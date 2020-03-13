@@ -80,24 +80,27 @@ namespace TP1
                         sw.WriteLine("Level");
                         for (int i = 0; i < countPlaces; i++)
                         {
-                            var plane = level[i];
-                            if (plane != null)
+                            foreach (ITransport plane in level)
                             {
-                                if (plane.GetType().Name == "Plane")
+                                if (plane != null)
                                 {
-                                    sw.WriteLine(i + ":Plane:" + plane);
-                                }
-                                if (plane.GetType().Name == "Bomber")
-                                {
-                                    sw.WriteLine(i + ":Bomber:" + plane);
+                                    if (plane.GetType().Name == "Plane")
+                                    {
+                                        sw.WriteLine(i + ":Plane:" + plane);
+                                    }
+                                    if (plane.GetType().Name == "Bomber")
+                                    {
+                                        sw.WriteLine(i + ":Bomber:" + plane);
+                                    }
                                 }
                             }
                         }
                     }
                 }
-                return true;
             }
+            return true;
         }
+      
         /// <summary>
         /// Загрузка нформации по автомобилям на парковках из файла
         /// </summary>
@@ -157,6 +160,14 @@ namespace TP1
                 }
                 return true;
             }
+        }
+
+        /// <summary>
+        /// Сортировка уровней
+        /// </summary>
+        public void Sort()
+        {
+            hangarStages.Sort();
         }
     }
 }
